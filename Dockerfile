@@ -10,3 +10,5 @@ COPY ./app /flux_serve/app
 USER 1000
 
 CMD ["fastapi", "run", "app/main.py", "--host", "0.0.0.0"]
+
+EXPOSE 8000
