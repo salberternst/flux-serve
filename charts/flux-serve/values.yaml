@@ -26,12 +26,12 @@ podAnnotations: {}
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 podLabels: {}
 
-podSecurityContext: {}
-  # fsGroup: 2000
+podSecurityContext: 
+  fsGroup: 2000
 
 securityContext: 
-  runAsUser: 1000
   runAsNonRoot: true
+  runAsUser: 1000
   # capabilities:
   #   drop:
   #   - ALL
@@ -80,10 +80,12 @@ livenessProbe:
   httpGet:
     path: /health
     port: http
+    initialDelaySeconds: 300
 readinessProbe:
   httpGet:
     path: /health
     port: http
+    initialDelaySeconds: 300
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
@@ -123,4 +125,4 @@ persistence:
   storageClass: ""
   accessModes:
     - ReadWriteOnce
-  size: 20Gi
+  size: 60Gi
