@@ -37,11 +37,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env: 
             - name: APP_MODEL_NAME
-              value: {{ .Values.appModelName | quote }}
+              value: {{ .Values.app.model_name | quote }}
             - name: APP_DEVICE
-              value: {{ .Values.appDevice | quote }}
+              value: {{ .Values.app.device | quote }}
             - name: HF_TOKEN
-              value: {{ .Values.hugggingface_token | quote }}
+              value: {{ .Values.app.hugggingface_token | quote }}
           command: ["python", "app/init.py"]
           {{- if or .Values.volumeMounts .Values.persistence.enabled }}
           volumeMounts:
@@ -63,11 +63,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env: 
             - name: APP_MODEL_NAME
-              value: {{ .Values.appModelName | quote }}
+              value: {{ .Values.app.model_name | quote }}
             - name: APP_DEVICE
-              value: {{ .Values.appDevice | quote }}
+              value: {{ .Values.app.device | quote }}
             - name: HF_TOKEN
-              value: {{ .Values.hugggingface_token | quote }}
+              value: {{ .Values.app.hugggingface_token | quote }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
