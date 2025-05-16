@@ -1,3 +1,4 @@
+import asyncio
 import torch
 from contextlib import asynccontextmanager
 from diffusers import FluxPipeline
@@ -116,7 +117,9 @@ app = FastAPI(lifespan=lifespan)
     response_class=Response
 )
 async def generate(request: TextToImagePipelineInput):
-    return Response(content=pipeline.generate(request), media_type="image/png")
+    loop = asyncio.get_event_loop()
+    result = await loop.run_in_executor(None, pipeline.generate, request)
+    return Response(content=result, media_type="image/png")
 
 
 @app.get("/health")
