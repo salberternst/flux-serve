@@ -7,6 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./app /flux_serve/app
 
+ENV HF_HOME=/opt/huggingface
+
 USER 1000
 
 CMD ["fastapi", "run", "app/main.py", "--host", "0.0.0.0"]
