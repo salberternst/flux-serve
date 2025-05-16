@@ -1,0 +1,17 @@
+{{- if and .Values.persistence.enabled -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "flux-serve.fullname" . }}
+  labels:
+    {{- include "flux-serve.labels" . | nindent 4 }}
+spec:
+  accessModes:
+  {{- range .Values.persistence.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size | quote }}
+  storageClass: {{ .Values.persistence.storageClass | quote }}
+{{- end -}}
