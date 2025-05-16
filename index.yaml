@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   flux-serve:
   - apiVersion: v2
+    appVersion: 0.1.7
+    created: "2025-05-16T10:43:42.024413508Z"
+    description: A fastapi application to serve FLUX.1 models
+    digest: ce269353d3b06247171324c8881ad8d3cd14a0944867a29ef7021ea7d6467558
+    name: flux-serve
+    type: application
+    urls:
+    - https://github.com/salberternst/flux-serve/releases/download/flux-serve-0.1.7/flux-serve-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
     appVersion: 0.1.6
     created: "2025-05-16T10:42:10.776593406Z"
     description: A fastapi application to serve FLUX.1 models
@@ -61,4 +71,4 @@ entries:
     urls:
     - https://github.com/salberternst/flux-serve/releases/download/flux-serve-0.1.1/flux-serve-0.1.1.tgz
     version: 0.1.1
-generated: "2025-05-16T10:42:10.776616109Z"
+generated: "2025-05-16T10:43:42.024440308Z"
