@@ -1,11 +1,6 @@
-from main import Settings, TextToImagePipeline
-
+from main import Settings
+from diffusers import DiffusionPipeline
 
 if __name__ == "__main__":
     settings = Settings()
-
-    TextToImagePipeline(
-        model_name=settings.model_name,
-        device=settings.device,
-        dtype=settings.dtype
-    )
+    DiffusionPipeline.download(settings.model_name)
