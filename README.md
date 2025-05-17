@@ -23,7 +23,7 @@ docker run \
     -e APP_DEVICE=cpu \
     -e HF_TOKEN=your_hf_token \
     -v $PWD/hub:/opt/huggingface \
-    ghcr.io/salberternst/flux-serve:0.1.8
+    ghcr.io/salberternst/flux-serve:0.1.9
 ```
 
 Note: The container sets HF_HOME to /opt/huggingface to persist downloaded models.
