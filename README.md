@@ -1,6 +1,6 @@
 # flux serve
 
-A small fastapi based service to run the FLUX.1 based models from [black forest labs](https://huggingface.co/black-forest-labs)
+A simple FastAPI-based service to run the FLUX.1 based models from [black forest labs](https://huggingface.co/black-forest-labs)
 
 ## Settings
 
@@ -17,16 +17,24 @@ The application can be configured using environment variables
 
 Using docker: 
 
-```shell
+```bash
 docker run \
     -p 8000 \
     -e APP_DEVICE=cpu \
-    -e HF_TOKEN=xxx \
+    -e HF_TOKEN=your_hf_token \
     -v $PWD/hub:/opt/huggingface \
     ghcr.io/salberternst/flux-serve:0.1.8
 ```
 
-The container sets by default `HF_HOME` to `/opt/huggingface` to persit downloaded models.
+Note: The container sets HF_HOME to /opt/huggingface to persist downloaded models.
+
+Using the [helm chart](./charts/flux-serve/README.md):
+
+```bash
+helm repo add flux-serve https://salberternst.github.io/flux-serve
+helm install flux-serve flux-serve/flux-serve \
+    --set flux_serve.device=cpu
+```
 
 ## License
 

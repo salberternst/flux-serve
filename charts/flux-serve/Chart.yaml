@@ -1,6 +1,6 @@
 apiVersion: v2
 name: flux-serve
-description: A fastapi application to serve FLUX.1 models
+description: A FastAPI application to serve FLUX.1 models
 type: application
 version: 0.1.8
 appVersion: "0.1.8"
